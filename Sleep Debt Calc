@@ -1,0 +1,46 @@
+//Here you can write down how many Hours you’ve slept each day
+
+const getSleepHours = function(day){
+  day = day.toLowerCase();
+  if(day === 'monday'){
+    return 6;
+  } else if(day === 'tuesday'){
+    return 8;
+  }else if(day === 'wednesday'){
+    return 6;
+  }else if(day === 'thursday'){
+    return 7;
+  }else if(day === 'friday'){
+    return 5;
+  }else if(day === 'saturday'){
+    return 7;
+  }else if(day === 'sunday'){
+    return 12;
+  }
+}
+
+//Calculating your Total amount of slept hours
+let getActualSleepHours = function() {
+  return getSleepHours('monday') + getSleepHours('tuesday') + getSleepHours('wednesday') + getSleepHours('thursday') + getSleepHours('friday') + getSleepHours('saturday') + getSleepHours('sunday');
+}
+
+//Here you can write your desired ideal Sleep Hours instead of the 8.
+let getIdealSleepHours = function() {
+let idealHours = 8;
+return idealHours*7;
+}
+
+//Calculating your Sleep Debt
+const calculateSleepDebt = function(){
+let actualSleepHours = getActualSleepHours();
+let idealSleepHours = getIdealSleepHours();
+ if (actualSleepHours === idealSleepHours){
+  console.log('Perfect amount of sleep. Nice.')
+} else if (actualSleepHours > idealSleepHours) {
+  console.log(`You've slept ${actualSleepHours - idealSleepHours} hours too much. Lazy...`);
+} else if (actualSleepHours < idealSleepHours) {
+  console.log(`SLEEP MORE. (${idealSleepHours - actualSleepHours} more Hours needed)`);
+}
+}
+
+calculateSleepDebt();
